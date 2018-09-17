@@ -39,7 +39,7 @@ class home extends Component {
         return (
             <div>
                 <h1 className="title">
-                    Search thousands of Movies from Titles, Artists, Directors and Producers...
+                    Search thousands of Movies from your Favorite Artists, Directors and Producers...
                 </h1>
                 <div className="field has-addons has-addons-centered">
                     <p className="control">
