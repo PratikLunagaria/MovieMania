@@ -31,10 +31,10 @@ render(){
                                 <Route exact path="/top10Imdb" component={TopImdb} />
                                 <Route exact path="/top10BoxOffice" component={TopBox} />
                                 <Route exact path="/top10Metacritic" component={TopMeta} />
-                                <Route path="/title/:id" component={titleSearch}/>
-                                <Route path="/Artist/:id" component={artistSearch}/>
-                                <Route path="/Director/:id" component={directorSearch}/>
-                                <Route path="/Producer/:id" component={producerSearch}/>
+                                <Route exact path="/title/:id" component={titleSearch}/>
+                                <Route exact path="/Artist/:id" component={artistSearch}/>
+                                <Route exact path="/Director/:id" component={directorSearch}/>
+                                <Route exact path="/Producer/:id" component={producerSearch}/>
                             </Switch>
                         </div>
                     </div>
