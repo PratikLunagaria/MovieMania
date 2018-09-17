@@ -1,6 +1,39 @@
 import React, {Component} from 'react';
+import { Redirect } from 'react-router-dom';
 
 class home extends Component {
+    constructor(props){
+        super(props);
+        this.state= {
+            searchType: 'title',
+            QueryName: '',
+            placeholder: 'Find a Movie'
+        };
+        this.handleQuery = this.handleQuery.bind(this);
+        this.handleType = this.handleType.bind(this);
+        this.handleRedirect = this.handleRedirect.bind(this);
+    }
+
+    handleType(e){
+        let typeVal = e.target.value;
+        let placeholderVal = 'Find a '+typeVal;
+        this.setState({
+            searchType: typeVal,
+            placeholder: placeholderVal
+        });
+
+    }
+
+    handleQuery(e){
+        this.setState(e)({
+            QueryName: e.target.value
+        })
+    }
+
+    handleRedirect(){
+
+    }
+
     render() {
         return (
             <div>
@@ -9,7 +42,7 @@ class home extends Component {
                 </h1>
                 <div className="field has-addons has-addons-centered">
                     <p className="control">
-                        <span className="select">
+                        <span className="select" onChange={this.handleType}>
                           <select>
                             <option>Title</option>
                             <option>Artist</option>
@@ -20,10 +53,10 @@ class home extends Component {
                         </span>
                     </p>
                     <div className="control is-expanded">
-                        <input className="input" type="text" placeholder="Find a repository"/>
+                        <input className="input" type="text" placeholder={this.state.placeholder}/>
                     </div>
                     <div className="control">
-                        <a className="button is-info">
+                        <a className="button is-info" onClick={this.handleRedirect}>
                             Search
                         </a>
                     </div>

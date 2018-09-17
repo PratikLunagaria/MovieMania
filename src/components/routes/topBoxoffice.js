@@ -1,14 +1,6 @@
 import React from "react";
 import MovieLayout from "../layout/MovieLayout"
-import { GraphQLClient } from 'graphql-request';
-import key from '../config/keys';
-
-const client = new GraphQLClient('https://moviegraph.io/q', {
-    headers: {
-        Authorization: key ,
-    },
-});
-
+import client from '../config/client';
 let MovieList = [];
 const query = `{
           movies(
