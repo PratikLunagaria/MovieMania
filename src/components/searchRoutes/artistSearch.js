@@ -1,0 +1,59 @@
+import React, {Component} from 'react';
+import { GraphQLClient } from 'graphql-request';
+import key from '../config/keys';
+
+const client = new GraphQLClient('https://moviegraph.io/q', {
+    headers: {
+        Authorization: key
+    },
+});
+
+let MovieList = [];
+
+
+class artistSearch extends Component {
+    constructor(props){
+        super(props);
+        this.state ={
+            resone: [],
+            QueryOne: []
+        }
+    }
+
+    componentDidMount(){
+        const query = `{
+          movies(
+            starring: ${this.state.QueryOne},
+            limit: 10
+          ) {
+            imdbScore
+            title
+            imdbUrl
+            releaseDate
+            synopsis
+            genres
+            directors{name}
+            stars{name}
+            boxOfficeString
+            metacriticScore
+          }
+        }`;
+        client
+            .request(query)
+            .then(data => {
+                data.movies.forEach((item)=> MovieList.push(item));
+                this.setState({ resone : MovieList });
+            })
+            .catch(err => console.log(err))
+    }
+
+    render() {
+        return (
+            <div>
+
+            </div>
+        );
+    }
+}
+
+export default artistSearch;
