@@ -39,7 +39,7 @@ class home extends Component {
         return (
             <div>
                 <h1 className="title">
-                    Search thousands of Movies, Artists, Genres, Directors and Producers...
+                    Search thousands of Movies from Titles, Artists, Directors and Producers...
                 </h1>
                 <div className="field has-addons has-addons-centered">
                     <p className="control">
@@ -47,7 +47,6 @@ class home extends Component {
                           <select onChange={this.handleType}>
                             <option>Title</option>
                             <option>Artist</option>
-                            <option>Genre</option>
                             <option>Director</option>
                             <option>Producer</option>
                           </select>
@@ -66,13 +65,13 @@ class home extends Component {
                     <div className="column is-4 container has-text-centered">
                         <h2>Popular Searches....</h2>
                         <div>
-                            <span className="tag is-rounded is-danger">Robert Downey Jr.</span>
-                            <span className="tag is-rounded is-success">The Nun</span>
-                            <span className="tag is-rounded is-info">Avengers: Infinity War</span>
-                            <span className="tag is-rounded is-primary">Chris Hemsworth</span>
-                            <span className="tag is-rounded is-warning">Emma Watson</span>
-                            <span className="tag is-rounded is-link">Arnold Schwarzenegger</span>
-                            <span className="tag is-rounded is-black">Tom Cruise</span>
+                            <a href="/Artist/Robert%20Downey%20Jr."><span className="tag is-rounded is-danger">Robert Downey Jr.</span></a>
+                            <a href="/title/the%20nun"><span className="tag is-rounded is-success">The Nun</span></a>
+                            <a href="/title/Avengers:%20Infinity%20War"><span className="tag is-rounded is-info">Avengers: Infinity War</span></a>
+                            <a href="/Artist/Chris%20Hemsworth"><span className="tag is-rounded is-primary">Chris Hemsworth</span></a>
+                            <a href="/Artist/Emma%20Watson"><span className="tag is-rounded is-warning">Emma Watson</span></a>
+                            <a href="/Director/Christopher%20Nolan"><span className="tag is-rounded is-link">Christopher Nolan</span></a>
+                            <a href="/Producer/Walt%20Disney"><span className="tag is-rounded is-black">Walt Disney</span></a>
                         </div>
                     </div>
                 </div>

@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import { request } from 'graphql-request';
-import classNames from 'classnames';
 import {BrowserRouter as Router, Route,Switch} from 'react-router-dom';
 
-//http://www.omdbapi.com/?i=tt3896198&apikey=bb8f9a2d
 
 import './App.css';
 import home from './components/routes/home';
@@ -13,14 +10,11 @@ import TopMeta from './components/routes/topMeta';
 import Navbar from './components/layout/Navbar';
 import BgCarousel from './components/layout/Carousel';
 import Footer from './components/layout/Footer';
-import NoMatch from './components/routes/NoMatch';
 import titleSearch from "./components/searchRoutes/titleSearch";
 import artistSearch from "./components/searchRoutes/artistSearch";
 import directorSearch from "./components/searchRoutes/directorSearch";
 import producerSearch from "./components/searchRoutes/producerSearch";
-import genreSearch from "./components/searchRoutes/genreSearch";
 
-//http://www.omdbapi.com/?i=tt3896198&apikey=bb8f9a2d
 
 class App extends Component {
 
@@ -40,7 +34,6 @@ render(){
                                 <Route path="/title/:id" component={titleSearch}/>
                                 <Route path="/Artist/:id" component={artistSearch}/>
                                 <Route path="/Director/:id" component={directorSearch}/>
-                                <Route path="/Genre/:id" component={genreSearch}/>
                                 <Route path="/Producer/:id" component={producerSearch}/>
                             </Switch>
                         </div>
