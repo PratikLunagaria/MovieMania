@@ -1,23 +1,22 @@
 import React, {Component} from 'react';
-import { GraphQLClient } from 'graphql-request';
 import client from '../config/client';
 
 let MovieList = [];
-
 
 class artistSearch extends Component {
     constructor(props){
         super(props);
         this.state ={
             resone: [],
-            QueryOne: []
+            QueryOne: this.props.match.params.id
         }
     }
 
     componentDidMount(){
+        let StarQuery = '"'+this.state.QueryOne+'"';
         const query = `{
           movies(
-            starring: ${this.state.QueryOne},
+            starring: ${StarQuery},
             limit: 10
           ) {
             imdbScore
@@ -37,6 +36,7 @@ class artistSearch extends Component {
             .then(data => {
                 data.movies.forEach((item)=> MovieList.push(item));
                 this.setState({ resone : MovieList });
+                console.log(data)
             })
             .catch(err => console.log(err))
     }
@@ -44,7 +44,7 @@ class artistSearch extends Component {
     render() {
         return (
             <div>
-
+                {this.state.QueryOne}
             </div>
         );
     }

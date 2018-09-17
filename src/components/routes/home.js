@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import { Redirect } from 'react-router-dom';
 
 class home extends Component {
     constructor(props){
@@ -7,7 +6,8 @@ class home extends Component {
         this.state= {
             searchType: 'title',
             QueryName: '',
-            placeholder: 'Find a Movie'
+            placeholder: 'Find a Movie',
+            searchHref: ''
         };
         this.handleQuery = this.handleQuery.bind(this);
         this.handleType = this.handleType.bind(this);
@@ -15,23 +15,24 @@ class home extends Component {
     }
 
     handleType(e){
-        let typeVal = e.target.value;
-        let placeholderVal = 'Find a '+typeVal;
+        let placeholderVal = 'Find a '+ e.target.value;
         this.setState({
-            searchType: typeVal,
+            searchType: e.target.value,
             placeholder: placeholderVal
         });
-
     }
 
     handleQuery(e){
-        this.setState(e)({
+        this.setState({
             QueryName: e.target.value
-        })
+        });
     }
 
     handleRedirect(){
-
+        let searchString = '/'+this.state.searchType+'/'+this.state.QueryName;
+        this.setState({
+            searchHref: searchString
+        })
     }
 
     render() {
@@ -42,8 +43,8 @@ class home extends Component {
                 </h1>
                 <div className="field has-addons has-addons-centered">
                     <p className="control">
-                        <span className="select" onChange={this.handleType}>
-                          <select>
+                        <span className="select">
+                          <select onChange={this.handleType}>
                             <option>Title</option>
                             <option>Artist</option>
                             <option>Genre</option>
@@ -53,10 +54,10 @@ class home extends Component {
                         </span>
                     </p>
                     <div className="control is-expanded">
-                        <input className="input" type="text" placeholder={this.state.placeholder}/>
+                        <input className="input" type="text" placeholder={this.state.placeholder} onChange={this.handleQuery}/>
                     </div>
                     <div className="control">
-                        <a className="button is-info" onClick={this.handleRedirect}>
+                        <a className="button is-info" onClick={this.handleRedirect} href={this.state.searchHref}>
                             Search
                         </a>
                     </div>

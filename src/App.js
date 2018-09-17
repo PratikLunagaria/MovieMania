@@ -37,12 +37,11 @@ render(){
                                 <Route exact path="/top10Imdb" component={TopImdb} />
                                 <Route exact path="/top10BoxOffice" component={TopBox} />
                                 <Route exact path="/top10Metacritic" component={TopMeta} />
-                                <Route path="/movie/:id" component={titleSearch}/>
-                                <Route path="/artist/:id" component={artistSearch}/>
-                                <Route path="/director/:id" component={directorSearch}/>
-                                <Route path="/genre/:id" component={genreSearch}/>
-                                <Route path="/producer/:id" component={producerSearch}/>
-                                <Route component={NoMatch} />
+                                <Route path="/title/:id" component={titleSearch}/>
+                                <Route path="/Artist/:id" component={artistSearch}/>
+                                <Route path="/Director/:id" component={directorSearch}/>
+                                <Route path="/Genre/:id" component={genreSearch}/>
+                                <Route path="/Producer/:id" component={producerSearch}/>
                             </Switch>
                         </div>
                     </div>
@@ -54,3 +53,5 @@ render(){
 }
 
 export default App;
+
+{/*<Route component={NoMatch} />*/}

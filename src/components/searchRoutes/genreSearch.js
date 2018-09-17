@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import { GraphQLClient } from 'graphql-request';
 import client from '../config/client';
 
 let MovieList = [];
